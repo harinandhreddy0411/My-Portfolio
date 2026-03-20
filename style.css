@@ -331,52 +331,53 @@ section { padding: 90px 60px; }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
 .project-box {
   background-color: white;
   border: 1px solid lightblue;
-  padding: 28px;
+  padding: 18px;
 }
 
 .project-box.wide {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
+  padding: 18px;
 }
 
 .project-number {
   color: steelblue;
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
 }
 
 .project-title {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: black;
 }
 
 .project-description {
   color: gray;
-  font-size: 14px;
-  line-height: 1.75;
-  margin-bottom: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
-.tags-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
 
 .tag {
-  font-size: 11px;
-  padding: 4px 10px;
+  font-size: 10px;
+  padding: 3px 8px;
   border: 1px solid lightblue;
   color: gray;
   background-color: white;
@@ -437,44 +438,7 @@ section { padding: 90px 60px; }
 .text-cyan   { color: cyan; }
 .text-gray   { color: gray; }
 
-.acm-section { padding: 50px 60px; background-color: white; }
-
-.acm-box {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  background-color: aliceblue;
-  border: 1px solid lightblue;
-  border-left: 5px solid steelblue;
-  padding: 28px 35px;
-  max-width: 680px;
-  box-shadow: 4px 4px 0 lightblue;
-}
-
-.acm-icon { font-size: 45px; }
-
-.acm-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
-  color: black;
-}
-
-.acm-description { color: gray; font-size: 14px; line-height: 1.6; }
-
-.acm-months {
-  margin-left: auto;
-  background-color: lightcyan;
-  color: steelblue;
-  border: 1px solid skyblue;
-  padding: 6px 14px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-#contact { background-color: aliceblue; }
+#contact { background-color: white; }
 
 .contact-layout {
   display: grid;
@@ -500,7 +464,7 @@ section { padding: 90px 60px; }
   font-size: 14px;
   padding: 14px 16px;
   border: 1px solid lightblue;
-  background-color: white;
+  background-color: aliceblue;
 }
 
 .contact-form { display: flex; flex-direction: column; gap: 14px; }
@@ -566,10 +530,8 @@ footer span { color: white; }
   .intro-title { font-size: 48px; }
   .about-layout { grid-template-columns: 1fr; gap: 40px; }
   .project-box.wide { grid-column: auto; grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .two-columns { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
-  .acm-section { padding: 40px 20px; }
-  .acm-box { flex-wrap: wrap; }
-  .acm-months { margin-left: 0; }
 }
