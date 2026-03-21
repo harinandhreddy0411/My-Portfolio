@@ -18,6 +18,11 @@ a { text-decoration: none; }
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  transition: box-shadow 0.3s;
+}
+
+.navbar:hover {
+  box-shadow: 0 2px 20px lightblue;
 }
 
 .navbar-logo {
@@ -40,9 +45,25 @@ a { text-decoration: none; }
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 4px;
 }
 
-.intro-section {
+.navbar-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background-color: steelblue;
+  transition: width 0.3s;
+}
+
+.navbar-menu a:hover { color: steelblue; }
+.navbar-menu a:hover::after { width: 100%; }
+
+.top-section {
   min-height: 100vh;
   padding: 120px 60px 60px;
   display: grid;
@@ -52,7 +73,7 @@ a { text-decoration: none; }
   background-color: white;
 }
 
-.intro-badge {
+.top-badge {
   color: steelblue;
   font-size: 13px;
   text-transform: uppercase;
@@ -61,9 +82,11 @@ a { text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 10px;
+  animation: fadeUp 0.6s 0.1s forwards;
+  opacity: 0;
 }
 
-.intro-badge::before {
+.top-badge::before {
   content: '';
   display: block;
   width: 25px;
@@ -71,28 +94,32 @@ a { text-decoration: none; }
   background-color: steelblue;
 }
 
-.intro-title {
+.top-title {
   font-family: 'Playfair Display', serif;
   font-size: 72px;
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 15px;
   color: black;
+  animation: fadeUp 0.6s 0.3s forwards;
+  opacity: 0;
 }
 
-.intro-title em {
+.top-title em {
   font-style: italic;
   color: steelblue;
 }
 
-.intro-subtitle {
+.top-subtitle {
   color: gray;
   font-size: 14px;
   margin-bottom: 20px;
   letter-spacing: 1px;
+  animation: fadeUp 0.6s 0.45s forwards;
+  opacity: 0;
 }
 
-.intro-description {
+.top-description {
   color: gray;
   font-size: 15px;
   line-height: 1.8;
@@ -100,14 +127,23 @@ a { text-decoration: none; }
   padding-left: 18px;
   margin-bottom: 35px;
   max-width: 420px;
+  animation: fadeUp 0.6s 0.55s forwards;
+  opacity: 0;
 }
 
-.intro-buttons {
+.top-buttons {
   display: flex;
   gap: 15px;
+  animation: fadeUp 0.6s 0.7s forwards;
+  opacity: 0;
 }
 
-.button-orange {
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.button-filled {
   background-color: steelblue;
   color: white;
   padding: 12px 28px;
@@ -117,9 +153,15 @@ a { text-decoration: none; }
   letter-spacing: 1px;
   cursor: pointer;
   display: inline-block;
+  transition: all 0.3s;
 }
 
-.button-border {
+.button-filled:hover {
+  background-color: transparent;
+  color: steelblue;
+}
+
+.button-empty {
   background-color: transparent;
   color: gray;
   padding: 12px 28px;
@@ -129,6 +171,12 @@ a { text-decoration: none; }
   letter-spacing: 1px;
   cursor: pointer;
   display: inline-block;
+  transition: all 0.3s;
+}
+
+.button-empty:hover {
+  border-color: steelblue;
+  color: steelblue;
 }
 
 .info-card {
@@ -136,6 +184,14 @@ a { text-decoration: none; }
   border: 1px solid lightblue;
   padding: 35px;
   box-shadow: 8px 8px 0 lightblue;
+  animation: fadeUp 0.6s 0.4s forwards;
+  opacity: 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 lightblue;
 }
 
 .info-card-title {
@@ -167,7 +223,8 @@ a { text-decoration: none; }
 }
 
 .info-value { color: black; font-weight: 500; }
-.info-value a { color: steelblue; }
+.info-value a { color: steelblue; transition: color 0.3s; }
+.info-value a:hover { color: blue; }
 
 .status-badge {
   display: inline-flex;
@@ -236,6 +293,12 @@ section { padding: 90px 60px; }
   border-left: 4px solid steelblue;
   padding: 25px;
   margin-top: 25px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.education-box:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0 lightblue;
 }
 
 .university-name {
@@ -272,6 +335,13 @@ section { padding: 90px 60px; }
   border: 1px solid lightblue;
   padding: 25px;
   text-align: center;
+  transition: all 0.3s;
+}
+
+.stat-box:hover {
+  box-shadow: 4px 4px 0 steelblue;
+  border-color: steelblue;
+  transform: translate(-2px, -2px);
 }
 
 .stat-number {
@@ -301,6 +371,13 @@ section { padding: 90px 60px; }
   background-color: aliceblue;
   border: 1px solid lightblue;
   padding: 22px;
+  transition: all 0.3s;
+}
+
+.skill-box:hover {
+  border-color: steelblue;
+  box-shadow: 4px 4px 0 steelblue;
+  transform: translate(-2px, -2px);
 }
 
 .skill-icon { font-size: 30px; margin-bottom: 10px; }
@@ -339,6 +416,13 @@ section { padding: 90px 60px; }
   background-color: white;
   border: 1px solid lightblue;
   padding: 18px;
+  transition: all 0.3s;
+}
+
+.project-box:hover {
+  border-color: steelblue;
+  box-shadow: 5px 5px 0 steelblue;
+  transform: translate(-3px, -3px);
 }
 
 .project-box.wide {
@@ -373,7 +457,7 @@ section { padding: 90px 60px; }
   margin-bottom: 12px;
 }
 
-.tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.tags-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
 
 .tag {
   font-size: 10px;
@@ -388,6 +472,24 @@ section { padding: 90px 60px; }
 .tag-orange { background-color: lightcyan; color: steelblue; border-color: skyblue; }
 .tag-blue   { background-color: lavender;  color: blue;      border-color: cornflowerblue; }
 .tag-green  { background-color: honeydew;  color: green;     border-color: lightgreen; }
+
+.project-links { margin-top: 10px; }
+
+.project-link {
+  display: inline-block;
+  font-size: 12px;
+  color: steelblue;
+  border: 1px solid steelblue;
+  padding: 5px 12px;
+  border-radius: 3px;
+  margin-right: 8px;
+  transition: all 0.3s;
+}
+
+.project-link:hover {
+  background-color: steelblue;
+  color: white;
+}
 
 .terminal-box {
   background-color: black;
@@ -465,6 +567,14 @@ section { padding: 90px 60px; }
   padding: 14px 16px;
   border: 1px solid lightblue;
   background-color: aliceblue;
+  transition: all 0.3s;
+}
+
+.contact-link:hover {
+  color: steelblue;
+  border-color: steelblue;
+  box-shadow: 3px 3px 0 steelblue;
+  transform: translate(-2px, -2px);
 }
 
 .contact-form { display: flex; flex-direction: column; gap: 14px; }
@@ -492,6 +602,13 @@ section { padding: 90px 60px; }
   outline: none;
   width: 100%;
   resize: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+  border-color: steelblue;
 }
 
 .input-group textarea { min-height: 110px; }
@@ -508,6 +625,12 @@ section { padding: 90px 60px; }
   letter-spacing: 1px;
   cursor: pointer;
   margin-top: 5px;
+  transition: all 0.3s;
+}
+
+.submit-button:hover {
+  background-color: transparent;
+  color: steelblue;
 }
 
 footer {
@@ -522,12 +645,22 @@ footer {
 footer p { font-size: 13px; color: lightcyan; }
 footer span { color: white; }
 
+.footer-links { display: flex; gap: 20px; }
+
+.footer-links a {
+  color: lightcyan;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: white; }
+
 @media (max-width: 860px) {
   .navbar { padding: 15px 20px; }
   .navbar-menu { gap: 15px; }
   section { padding: 60px 20px; }
-  .intro-section { grid-template-columns: 1fr; padding: 100px 20px 50px; }
-  .intro-title { font-size: 48px; }
+  .top-section { grid-template-columns: 1fr; padding: 100px 20px 50px; }
+  .top-title { font-size: 48px; }
   .about-layout { grid-template-columns: 1fr; gap: 40px; }
   .project-box.wide { grid-column: auto; grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
