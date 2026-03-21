@@ -4,6 +4,9 @@ body {
   background-color: white;
   color: black;
   font-family: 'Poppins', sans-serif;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 a { text-decoration: none; }
@@ -65,6 +68,9 @@ a { text-decoration: none; }
 
 .top-section {
   min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-align: start;
   padding: 120px 60px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -245,7 +251,12 @@ a { text-decoration: none; }
   50% { opacity: 0.3; }
 }
 
-section { padding: 90px 60px; }
+section {
+  padding: 90px 60px;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-align: start;
+}
 
 .section-number {
   color: steelblue;
@@ -640,6 +651,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  scroll-snap-align: start;
 }
 
 footer p { font-size: 13px; color: lightcyan; }
@@ -658,8 +670,8 @@ footer span { color: white; }
 @media (max-width: 860px) {
   .navbar { padding: 15px 20px; }
   .navbar-menu { gap: 15px; }
-  section { padding: 60px 20px; }
-  .top-section { grid-template-columns: 1fr; padding: 100px 20px 50px; }
+  section { padding: 60px 20px; height: auto; }
+  .top-section { grid-template-columns: 1fr; padding: 100px 20px 50px; height: auto; }
   .top-title { font-size: 48px; }
   .about-layout { grid-template-columns: 1fr; gap: 40px; }
   .project-box.wide { grid-column: auto; grid-template-columns: 1fr; }
